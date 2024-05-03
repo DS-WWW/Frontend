@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Catfeed from './pages/Catfeed';
 import CatfeedDetail from './pages/CatfeedDetail';
-import Hospital from './pages/Hospital';
+import HospitalMap from './pages/HospitalMap';
 import Catcamera from './pages/Catcamera';
 import Cardnews from './pages/Cardnews';
 
@@ -16,7 +16,7 @@ function App() {
           <Route path ="/" element={<Navbar />}>
             <Route path="/" element={<Home />}/>
             <Route path="/Catfeed" element={<Catfeed />}/>
-            <Route path="/Hospital" element={<Hospital />}/>
+            <Route path="/HospitalMap" element={<HospitalMap />}/>
             <Route path="/Catfeed/CatfeedDetail" element={<CatfeedDetail />}/>
             <Route path="/Catcamera" element={<Catcamera />}/>
             <Route path="/Cardnews" element={<Cardnews />}/>

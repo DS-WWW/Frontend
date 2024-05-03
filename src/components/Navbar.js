@@ -25,7 +25,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className='nav-li'>
-            <NavLink to='/Hospital' className='nav-link'>
+            <NavLink to='/HospitalMap' className='nav-link'>
               동물병원
             </NavLink>
           </li>
