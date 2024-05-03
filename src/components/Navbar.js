@@ -16,27 +16,22 @@ const Navbar = () => {
         <ul className='nav-right'>
           <li className='nav-li'>
             <NavLink to='/Catfeed' className='nav-link'>
-              Catfeed
-            </NavLink>
-          </li>
-          <li className='nav-li'>
-            <NavLink to='/Hospital' className='nav-link'>
-              Hospital
-            </NavLink>
-          </li>
-          <li className='nav-li'>
-            <NavLink to='/Catfeed/CatfeedDetail' className='nav-link'>
-              CatfeedDetail
+              지도
             </NavLink>
           </li>
           <li className='nav-li'>
             <NavLink to='/Catcamera' className='nav-link'>
-              Catcamera
+              고양이 인식
+            </NavLink>
+          </li>
+          <li className='nav-li'>
+            <NavLink to='/Hospital' className='nav-link'>
+              동물병원
             </NavLink>
           </li>
           <li className='nav-li'>
             <NavLink to='/Cardnews' className='nav-link'>
-              Cardnews
+              고양이 알아보자
             </NavLink>
           </li>
         </ul>
