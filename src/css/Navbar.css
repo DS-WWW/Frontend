@@ -1,24 +1,44 @@
+@font-face {
+  font-family: "PretendardMedium";
+  src: url("../fonts/Pretendard-Medium.otf");
+}
+
+
 .navbar {
-  /* background: transparent ; */
-  background: #000000;
+  background: #ffffff;
+  height: 10vh;
   display: flex;
-  font-size: 20px;
+  font-size: 28px;
+  font-family: 'PretendardMedium';
   color: #ffffff;
   justify-content: space-between;
   align-content: center;
-  padding-top: 30px;
   align-items: center;
-  padding-left: 10%;
 }
 
-.left{
+.nav-left{
   display: flex;
   justify-content: space-between;
   text-align: center;
-  padding-left: 30px;
+  margin-left: 3%;
 }
 
-.navlink {
-  color: #ffffff;
-  padding: 10px;
+.nav-right {
+  margin-right: 3%;
+  list-style: none;
+}
+
+.nav-logo {
+  justify-content: right;
+
+}
+
+.nav-li {
+  float: left;
+  margin-left: 64px;
+}
+
+.nav-link {
+  color: #A66D4F;
+  text-decoration: none;
 }
