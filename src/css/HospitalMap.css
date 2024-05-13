@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "PretendardBold";
+  src: url("../fonts/Pretendard-Bold.otf");
+}
+
+@font-face {
+  font-family: "PretendardMedium";
+  src: url("../fonts/Pretendard-Medium.otf");
+}
+
+.hospital-map {
+  width: 90vw;
+  display: flex;
+  margin: auto;
+  padding-bottom: 16px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.title {
+  font-family: 'PretendardBold';
+  font-size: 28px;
+  color: #A66D4F;
+}
+
+.hospital-search {
+  width: 90vw;
+  display: flex;
+  margin: 0 auto;
+  padding-top: 40px;
+  align-items: flex-start;
+  font-family: 'PretendardMedium';
+}
+
+.search {
+  width: 90vw;
+  background: #A66D4F;
+  margin: 0 auto;
+  display: flex;
+  color: #ffffff;
+  font-family: 'PretendardMedium';
+  border-style: none;
+  margin-top: 16px;
+}
+
+.search-input {
+  width: 90vw;
+  background: #A66D4F;
+  margin: 0 auto;
+  display: flex;
+  height: 5vh;
+  color: #ffffff;
+  font-family: 'PretendardMedium';
+  border-style: none;
+  font-size: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+  /* border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border-bottom-right-radius: 10%; */
+}
+
+.search-input::placeholder {
+  color: #ffffff;
+  opacity: 70%;
+}
+
+.btn-search {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  padding-right: 10px;
+}
