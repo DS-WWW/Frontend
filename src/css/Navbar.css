@@ -14,17 +14,19 @@
   align-content: center;
   align-items: center;
   margin-bottom: 20px;
+  border-bottom: solid;
+  border-color: #A66D4F;
 }
 
 .nav-left{
   display: flex;
   justify-content: space-between;
   text-align: center;
-  margin-left: 3%;
+  margin-left: 4%;
 }
 
 .nav-right {
-  margin-right: 3%;
+  margin-right: 4%;
   list-style: none;
 }
 
