@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "PretendardBold";
+  src: url("../fonts/Pretendard-Bold.otf");
+}
+
+@font-face {
+  font-family: "PretendardMedium";
+  src: url("../fonts/Pretendard-Medium.otf");
+}
+
+.catfeed-map {
+  width: 90vw;
+  display: flex;
+  margin: auto;
+  padding-bottom: 16px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.title {
+  font-family: 'PretendardBold';
+  font-size: 28px;
+  color: #A66D4F;
+}
+
+.time {
+  font-family: 'PretendardMedium';
+  font-size: 20px;
+  color: #A66D4F;
+}
+
+.catfeed-list {
+  width: 90vw;
+  display: flex;
+  margin: 0 auto;
+  padding-top: 40px;
+  align-items: flex-start;
+  font-family: 'PretendardMedium';
+}
