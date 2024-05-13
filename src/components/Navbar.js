@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className="navbar">
         <div className='nav-left'>
           <NavLink to='/' className="nav-logo">
-            <img alt="홈 아이콘" src={logo} height="60px" />
+            <img alt="홈 아이콘" src={logo} height="80px" />
           </NavLink>
         </div>
         <ul className='nav-right'>
