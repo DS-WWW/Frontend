@@ -21,7 +21,7 @@ const CatfeedList = () => {
         <button className='check-btn' onClick={goCctv}>급식소 확인</button>
       </div>
     </div>
-  );
+  )
 }
 
 export default CatfeedList;

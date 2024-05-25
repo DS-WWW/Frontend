@@ -1,0 +1,118 @@
+@font-face {
+  font-family: "PretendardBold";
+  src: url("../fonts/Pretendard-Bold.otf");
+}
+
+@font-face {
+  font-family: "PretendardMedium";
+  src: url("../fonts/Pretendard-Medium.otf");
+}
+
+@font-face {
+  font-family: "PretendardRegular";
+  src: url("../fonts/Pretendard-Regular.otf")
+}
+
+.container {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: 'PretendardBold';
+  font-size: 28px;
+  color: #A66D4F;
+}
+
+.tabs {
+  flex-grow: 1;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  padding-left: 16px;
+}
+
+.tabs::-webkit-scrollbar {
+  height: 3px;
+}
+
+.tabs::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.tabs::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.1);
+  border-radius: 10px;
+}
+
+.tabs::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.8);
+}
+
+.tab-list {
+  display: flex;
+  width: max-content;
+}
+
+.tab {
+  cursor: pointer;
+  border: none;
+  background: #ffffff;
+  color: #A66D4F;
+  border: 2px solid #A66D4F;
+  border-radius: 36px;
+  padding: 5px 20px;
+  flex: 0 0 150px;
+  margin-right: 16px;
+  font-family: 'PretendardMedium';
+  font-size: 18px;
+}
+
+.tab.active {
+  background: #A66D4F;
+  color: #ffffff;
+}
+
+.tab:last-child {
+  margin-right: 0;
+}
+
+.tab-content {
+  padding: 20px 0;
+}
+
+.tab-panel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개씩 */
+  gap: 16px; /* 간격 설정 */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  font-family: "PretendardRegular";
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pagination button.active {
+  font-family: 'PretendardBold';
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

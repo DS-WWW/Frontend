@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "PretendardRegular";
+  src: url("../fonts/Pretendard-Regular.otf")
+}
+
+.cat-place-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.place-container {
+  border: 3px solid #A66D4F;
+  border-radius: 30px;
+  width: 28vw;
+  text-align: center;
+  font-family: "PretendardRegular";
+  font-size: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 10px;
+}
+
+.find-date, .find-place {
+  margin-bottom: 4px;
+}
+
+.place-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cat-img {
+  max-width: 90%;
+  height: auto;
+}

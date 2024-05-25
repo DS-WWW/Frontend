@@ -4,6 +4,20 @@ import KakaoMap from '../components/KakaoMap';
 import "../css/HospitalMap.css"
 import search from '../images/search.png'
 
+const hospitalMarkers = [
+  {
+    name: "대형동물병원",
+    lat: 37.646321,
+    lng: 127.018156
+  },
+  {
+    name: "동물병원비아츠",
+    lat: 37.653371,
+    lng: 127.017121
+  },
+
+]
+
 const HospitalMap = () => {
   const [hospital, setHospital] = useState("");
 
@@ -12,7 +26,7 @@ const HospitalMap = () => {
       <div className='hospital-map'>
         <text className='title'>동물병원 지도</text>
       </div>
-      <KakaoMap />
+      <KakaoMap markers={hospitalMarkers} />
       <div>
         <div className='hospital-search'>
           <text className='title'>동물병원 찾기</text>

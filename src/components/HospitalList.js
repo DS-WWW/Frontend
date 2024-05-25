@@ -1,14 +1,7 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
 import "../css/HospitalList.css"
 
 const HospitalList = () => {
-
-  // const navigate = useNavigate()
-
-  // const goCctv = () => {
-  //   navigate('/Catcamera')
-  // }
 
   return (
     <div className='list'>
