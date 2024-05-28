@@ -67,7 +67,7 @@
 .btn-search {
   border: none;
   outline: none;
-  background-color: inherit;
-  padding-right: 10px;
+  background-color: transparent;
   border-radius: 50px;
+  margin-right: 16px;
 }
