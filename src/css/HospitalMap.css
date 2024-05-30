@@ -41,6 +41,7 @@
   font-family: 'PretendardMedium';
   border-style: none;
   margin-top: 16px;
+  border-radius: 50px;
 }
 
 .search-input {
@@ -48,17 +49,14 @@
   background: #A66D4F;
   margin: 0 auto;
   display: flex;
-  height: 5vh;
+  height: 7vh;
   color: #ffffff;
   font-family: 'PretendardMedium';
   border-style: none;
   font-size: 20px;
   padding-left: 16px;
   padding-right: 16px;
-  /* border-top-left-radius: 10%;
-  border-top-right-radius: 10%;
-  border-bottom-left-radius: 10%;
-  border-bottom-right-radius: 10%; */
+  border-radius: 50px;
 }
 
 .search-input::placeholder {
@@ -69,6 +67,7 @@
 .btn-search {
   border: none;
   outline: none;
-  background-color: inherit;
-  padding-right: 10px;
+  background-color: transparent;
+  border-radius: 50px;
+  margin-right: 16px;
 }

@@ -1,23 +1,20 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
 import "../css/HospitalList.css"
 
-const HospitalList = () => {
+const HospitalList = ({ marker }) => {
 
-  // const navigate = useNavigate()
-
-  // const goCctv = () => {
-  //   navigate('/Catcamera')
-  // }
+  const handleDetailClick = () => {
+    window.open(marker.url, '_blank')
+  }
 
   return (
     <div className='list'>
       <div className='hospital'>
-        <text className='content'>대형동물병원</text>
+        <text className='content'>{marker.name}</text>
       </div>
       <div className='hospital'>
-        <text className='content'>서울특별시 강북구 한천로 1135 대형동물병원</text>
-        <button className='detail-btn'>대형동물병원</button>
+        <text className='content'>{marker.address}</text>
+        <button className='detail-btn' onClick={handleDetailClick}>{marker.name}</button>
       </div>
     </div>
   );

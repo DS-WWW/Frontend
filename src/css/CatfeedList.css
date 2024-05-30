@@ -41,22 +41,26 @@
   background: #A66D4F;
   height: 36px;
   width: 36px;
-  border-radius: 50%;
+  border-radius: 50px;
   margin: 0 auto;
   align-content: center;
   text-align: center;
   font-family: 'PretendardBold';
   font-size: 18px;
+  color: #ffffff
 }
 
 .check-btn {
   background: #A66D4F;
   height: 36px;
   width: 140px;
-  border-radius: 50%;
+  border-radius: 30px;
   margin: 0 auto;
   align-content: center;
   text-align: center;
   font-family: 'PretendardBold';
   border: none;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
 }
