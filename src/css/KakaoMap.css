@@ -6,26 +6,24 @@
 }
 
 .custom-marker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marker-title {
   background-color: #A66D4F;
   color: white;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 20px;
   text-align: center;
   font-size: 12px;
   white-space: nowrap;
-  transform: translate(-50%, -100%);
-  position: relative;
+  position: absolute;
+  transition: border ease;
 }
 
-.custom-marker::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 8px solid #A66D4F;
+.marker-title.hover {
+  border: 3px solid black;
 }
