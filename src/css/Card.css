@@ -1,0 +1,110 @@
+@font-face {
+    font-family: "PretendardBold";
+    src: url("../fonts/Pretendard-Bold.otf");
+  }
+  
+  @font-face {
+    font-family: "PretendardMedium";
+    src: url("../fonts/Pretendard-Medium.otf");
+  }
+  
+  @font-face {
+    font-family: "PretendardLight";
+    src: url("../fonts/Pretendard-Light.otf");
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-family: 'PretendardBold';
+    font-size: 28px;
+    color: #A66D4F;
+    margin-right: auto; /* This makes the button align to the right of the title */
+  }
+  
+  .filter-btn {
+    background: #A66D4F;
+    height: 36px;
+    width: 140px;
+    border-radius: 50%;
+    margin-left: 20px;
+    text-align: center;
+    font-family: 'PretendardBold';
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 44px 56px;
+    padding: 20px;
+  }
+  
+  .card {
+    width: 416px;
+    height: 342px;
+    border: 2px solid #A66D4F;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card > div {
+    flex: 1;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .card-content {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  .card-subtitle {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .page-button {
+    background-color: #fff;
+    border: 1px solid #A66D4F;
+    color: #A66D4F;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .page-button.active {
+    background-color: #A66D4F;
+    color: #fff;
+  }
+  

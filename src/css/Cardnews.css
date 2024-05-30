@@ -1,0 +1,48 @@
+/* src/css/Cardnews.css */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 300px); /* 카드 너비 */
+    gap: 44px; /* 카드 사이 간격 */
+    padding: 20px; /* 전체 padding */
+    margin: 0 auto; /* 가운데 정렬 */
+    max-width: 1440px; /* 최대 너비 */
+}
+
+.card {
+    width: 300px;
+    height: 380px;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    width: 100%;
+    height: 300px; /* 이미지 높이 */
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-content {
+    padding: 10px;
+    background-color: #A66D4F; /* 배경색 */
+    color: #fff; /* 글자색 흰색으로 */
+    font-size: 16px;
+    height: 80px; /* 텍스트 영역 높이 */
+    overflow: hidden; /* 넘치는 텍스트 숨기기 */
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 최대 세 줄까지 표시 */
+    -webkit-box-orient: vertical;
+    overflow: hidden; /* 넘치는 텍스트 숨기기 */
+}
