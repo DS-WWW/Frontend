@@ -1,56 +1,189 @@
-// src/pages/Catcamera.js
-
 import React, { useState } from 'react';
-import Card from '../components/card';
-import '../css/Card.css';
-import '../css/Catcamera.css';
+import CatPlace from '../components/CatPlace';
+import '../css/Catcamera.css'
+
+const tabs = [ /* 각 탭의 정보도 백엔드에서 줘야할 것 같아요. 아닌가? */
+  { id: 1, title: '도서관' },
+  { id: 2, title: '정문' },
+  { id: 3, title: '차미리사관' },
+  { id: 4, title: '자연과학대학' }
+]
+
+const catData = [
+  {id: 1, title: '도서관', time: '2024.5.17 00:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 01:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 02:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 03:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 04:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 05:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 06:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 07:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 08:20'},
+  {id: 2, title: '정문', time: '2024.5.17 11:00'},
+  {id: 1, title: '도서관', time: '2024.5.17 00:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 01:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 02:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 03:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 04:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 05:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 06:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 07:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 08:20'},
+  {id: 2, title: '정문', time: '2024.5.17 11:00'},
+  {id: 1, title: '도서관', time: '2024.5.17 00:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 01:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 02:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 03:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 04:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 05:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 06:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 07:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 08:20'},
+  {id: 2, title: '정문', time: '2024.5.17 11:00'},
+  {id: 1, title: '도서관', time: '2024.5.17 00:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 01:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 02:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 03:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 04:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 05:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 06:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 07:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 08:20'},
+  {id: 2, title: '정문', time: '2024.5.17 11:00'},
+  {id: 1, title: '도서관', time: '2024.5.17 00:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 01:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 02:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 03:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 04:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 05:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 06:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 07:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 08:20'},
+  {id: 2, title: '정문', time: '2024.5.17 11:00'},
+  {id: 1, title: '도서관', time: '2024.5.17 00:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 01:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 02:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 03:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 04:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 05:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 06:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 07:20'},
+  {id: 1, title: '도서관', time: '2024.5.17 08:20'},
+  {id: 2, title: '정문', time: '2024.5.17 11:00'},
+  {id: 3, title: '차미리사관', time: '2024.5.17 12:00'},
+  {id: 4, title: '자연과학대학', time: '2024.5.17 13:00'},
+  {id: 4, title: '자연과학대학', time: '2024.5.17 12:34'}
+]
+
+const ITEMS_PER_PAGE = 6
 
 const Catcamera = () => {
-  const cardsPerPage = 6;
-  const totalCards = 18; // 총 카드 수를 설정
-  const [currentPage, setCurrentPage] = useState(1);
+  const [activeTab, setActiveTab] = useState(tabs[0].id)
+  const [currentPage, setCurrentPage] = useState(1)
 
-  // 현재 페이지에 해당하는 카드들을 계산
-  const indexOfLastCard = currentPage * cardsPerPage;
-  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+  const filteredData = catData
+    .filter(item => item.id === activeTab)
+    .sort((a, b) => new Date(b.time) - new Date(a.time))
 
-  // 페이지 변경 함수
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE)
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+    const currentData = filteredData.slice(startIndex, startIndex + ITEMS_PER_PAGE)
 
-  // 총 페이지 수 계산
-  const totalPages = Math.ceil(totalCards / cardsPerPage);
+  const handleClickNext = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
-  const currentCards = Array.from({ length: totalCards }).slice(indexOfFirstCard, indexOfLastCard);
+  const handleClickPrev = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+
+  const handleClickFirst = () => {
+    setCurrentPage(1);
+  }
+
+  const handleClickLast = () => {
+    setCurrentPage(totalPages);
+  }
+
+  const handleClickPageNumber = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
+
+  const getPageNumbers = () => {
+    const pageNumbers = []
+    let startPage = Math.max(1, currentPage - 2)
+    let endPage = Math.min(totalPages, currentPage + 2)
+
+    if (currentPage <= 3) {
+      endPage = Math.min(5, totalPages)
+    }
+
+    if (currentPage > totalPages - 3) {
+      startPage = Math.max(totalPages - 4, 1)
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      pageNumbers.push(i)
+    }
+
+    return pageNumbers;
+  }
 
   return (
     <div className="container">
       <div className="header">
-        <div className="title">방명록</div>
-        <button className="filter-btn">도서관</button>
-        <button className="filter-btn">정문</button>
-        <button className="filter-btn">차미리사관</button>
-        <button className="filter-btn">자연관</button>
-
-
+        <text className="title">방문한 발자국</text>
+        <div className="tabs">
+          <div className="tab-list">
+            {tabs.map(tab => (
+              <button
+                key={tab.id}
+                className={`tab ${tab.id === activeTab ? 'active' : ''}`}
+                onClick={() => {
+                  setActiveTab(tab.id)
+                  setCurrentPage(1)
+                }}
+              >
+                {tab.title}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="grid-container">
-        {currentCards.map((_, index) => (
-          <Card key={index} text1="덕성여대" text2="2024" image={`image-url-${index + 1}.jpg`} />
-        ))}
-      </div>
-      <div className="pagination">
-        {Array.from({ length: totalPages }, (_, i) => (
-          <button
-            key={i + 1}
-            onClick={() => paginate(i + 1)}
-            className={`page-button ${currentPage === i + 1 ? 'active' : ''}`}
-          >
-            {i + 1}
+      <div className="tab-content">
+        <div className="tab-panel">
+          <CatPlace data={currentData} />
+        </div>
+        <div className="pagination">
+          <button onClick={handleClickFirst} disabled={currentPage === 1}>
+            &lt;&lt;
           </button>
-        ))}
+          <button onClick={handleClickPrev} disabled={currentPage === 1}>
+            &lt;
+          </button>
+          {getPageNumbers().map(pageNumber => (
+            <button
+              key={pageNumber}
+              onClick={() => handleClickPageNumber(pageNumber)}
+              className={currentPage === pageNumber ? 'active' : ''}
+            >
+              {pageNumber}
+            </button>
+          ))}
+          <button onClick={handleClickNext} disabled={currentPage === totalPages}>
+            &gt;
+          </button>
+          <button onClick={handleClickLast} disabled={currentPage === totalPages}>
+            &gt;&gt;
+          </button>
+        </div>
       </div>
     </div>
   );
-};
+}
 
 export default Catcamera;

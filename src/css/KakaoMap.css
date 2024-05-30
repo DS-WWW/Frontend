@@ -4,3 +4,26 @@
   display: block;
   margin: 0 auto;
 }
+
+.custom-marker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marker-title {
+  background-color: #A66D4F;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 12px;
+  white-space: nowrap;
+  position: absolute;
+  transition: border ease;
+}
+
+.marker-title.hover {
+  border: 3px solid black;
+}
