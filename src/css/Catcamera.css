@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "PretendardBold";
+    src: url("../fonts/Pretendard-Bold.otf");
+  }
+  
+  @font-face {
+    font-family: "PretendardMedium";
+    src: url("../fonts/Pretendard-Medium.otf");
+  }
+  
+  @font-face {
+    font-family: "PretendardLight";
+    src: url("../fonts/Pretendard-Light.otf");
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 52px;
+  }
+  
+  .title {
+    font-family: 'PretendardBold';
+    font-size: 28px;
+    color: #A66D4F;
+    margin-left: 56px; /* This makes the button align to the right of the title */
+  }
+  
+  .filter-btn {
+    background: #A66D4F;
+    height: 48px;
+    width: 216px;
+    border-radius: 50%;
+    margin-left: auto;
+    align-content: center;
+    text-align: center;
+    font-family: 'PretendardBold';
+    border: none;
+  }
+  
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 44px 56px;
+    padding: 52px;
+  }
+  
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .page-button {
+    background-color: #fff;
+    border: 1px solid #A66D4F;
+    color: #A66D4F;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .page-button.active {
+    background-color: #A66D4F;
+    color: #fff;
+  }
+  
