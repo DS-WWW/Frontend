@@ -1,88 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import CatPlace from '../components/CatPlace';
 import '../css/Catcamera.css'
-
-const tabs = [ /* 각 탭의 정보도 백엔드에서 줘야할 것 같아요. 아닌가? */
-  { id: 1, title: '도서관' },
-  { id: 2, title: '정문' },
-  { id: 3, title: '차미리사관' },
-  { id: 4, title: '자연과학대학' }
-]
-
-const catData = [
-  {id: 1, title: '도서관', time: '2024.5.17 00:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 01:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 02:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 03:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 04:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 05:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 06:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 07:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 08:20'},
-  {id: 2, title: '정문', time: '2024.5.17 11:00'},
-  {id: 1, title: '도서관', time: '2024.5.17 00:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 01:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 02:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 03:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 04:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 05:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 06:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 07:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 08:20'},
-  {id: 2, title: '정문', time: '2024.5.17 11:00'},
-  {id: 1, title: '도서관', time: '2024.5.17 00:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 01:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 02:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 03:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 04:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 05:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 06:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 07:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 08:20'},
-  {id: 2, title: '정문', time: '2024.5.17 11:00'},
-  {id: 1, title: '도서관', time: '2024.5.17 00:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 01:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 02:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 03:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 04:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 05:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 06:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 07:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 08:20'},
-  {id: 2, title: '정문', time: '2024.5.17 11:00'},
-  {id: 1, title: '도서관', time: '2024.5.17 00:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 01:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 02:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 03:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 04:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 05:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 06:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 07:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 08:20'},
-  {id: 2, title: '정문', time: '2024.5.17 11:00'},
-  {id: 1, title: '도서관', time: '2024.5.17 00:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 01:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 02:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 03:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 04:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 05:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 06:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 07:20'},
-  {id: 1, title: '도서관', time: '2024.5.17 08:20'},
-  {id: 2, title: '정문', time: '2024.5.17 11:00'},
-  {id: 3, title: '차미리사관', time: '2024.5.17 12:00'},
-  {id: 4, title: '자연과학대학', time: '2024.5.17 13:00'},
-  {id: 4, title: '자연과학대학', time: '2024.5.17 12:34'}
-]
 
 const ITEMS_PER_PAGE = 6
 
 const Catcamera = () => {
-  const [activeTab, setActiveTab] = useState(tabs[0].id)
-  const [currentPage, setCurrentPage] = useState(1)
+  const [tabs, setTabs] = useState([]) // 탭 데이터를 저장하는 상태
+  const [catData, setCatData] = useState([]) // 고양이 데이터를 저장하는 상태
+  const [activeTab, setActiveTab] = useState('') // 활성 탭을 저장하는 상태
+  const [currentPage, setCurrentPage] = useState(1) // 현재 페이지를 저장하는 상태
+
+  useEffect(() => {
+    const fetchTabs = async () => {
+      try {
+        const response = await axios.get('/api/recognition/tabs');
+        if (response.data.success) {
+          const tabsData = response.data.recognitions.map((item, index) => ({
+            id: index + 1,
+            title: item.category
+          }))
+          setTabs(tabsData);
+          if (tabsData.length > 0) {
+            setActiveTab(tabsData[0].title)
+          }
+        } else {
+          console.error('Error: Tabs data fetch was not successful.');
+        }
+      } catch (error) {
+        console.error('Error fetching tabs data:', error)
+      }
+    };
+    fetchTabs();
+  }, [])
+
+  useEffect(() => {
+    if (activeTab) {
+      // 활성 탭이 변경될 때 해당 카테고리의 데이터를 가져오는 함수
+      const fetchCatData = async () => {
+        try {
+          const response = await axios.get(`/api/recognition/tabs/${activeTab}`);
+          if (response.data.success) {
+            const formattedData = response.data.recognitions.map(item => ({
+              id: item._id,
+              title: item.title,
+              time: formatDateTime(item.date),
+              img: item.img,
+              category: item.category
+            }));
+            setCatData(formattedData)
+          } else {
+            console.error('Error: Cat data fetch was not successful.')
+          }
+        } catch (error) {
+          console.error('Error fetching cat data:', error)
+        }
+      };
+      fetchCatData()
+    }
+  }, [activeTab])
+
+  const formatDateTime = (dateTime) => {
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }
+    const formattedDateTime = new Intl.DateTimeFormat('ko-KR', options).format(new Date(dateTime))
+    return formattedDateTime.replace(/\./g, '. ')
+  }
 
   const filteredData = catData
-    .filter(item => item.id === activeTab)
     .sort((a, b) => new Date(b.time) - new Date(a.time))
 
     const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE)
@@ -136,15 +120,15 @@ const Catcamera = () => {
   return (
     <div className="container">
       <div className="header">
-        <text className="title">방문한 발자국</text>
+        <div className="title">방문한 발자국</div>
         <div className="tabs">
           <div className="tab-list">
             {tabs.map(tab => (
               <button
                 key={tab.id}
-                className={`tab ${tab.id === activeTab ? 'active' : ''}`}
+                className={`tab ${tab.title === activeTab ? 'active' : ''}`}
                 onClick={() => {
-                  setActiveTab(tab.id)
+                  setActiveTab(tab.title)
                   setCurrentPage(1)
                 }}
               >
