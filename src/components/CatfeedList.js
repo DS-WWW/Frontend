@@ -7,20 +7,19 @@ const CatfeedList = ({ marker, index }) => {
 
   const navigate = useNavigate()
 
-  const goCctv = () => {
-    navigate('/Catcamera')
+  const feedInfo = () => {
+    navigate(`/Catfeed/CatfeedDetail/${(marker.name)}`)
   }
 
   return (
     <div className='list'>
       <div className='feed'>
-        {/* <div className='number'>1</div> */}
         <img className='cat-icon' src={catIcon} alt="" /> 
-        <text className='feed-content'>{marker.name}</text>
+        <div className='feed-content'>{marker.name}</div>
       </div>
       <div className='feed'>
-        <text className='feed-content'>사료 {marker.feed}g, 물 {marker.water}ml</text>
-        <button className='check-btn' onClick={goCctv}>급식소 확인</button>
+        <div className='feed-content'>사료 {marker.weight}g, 물 {marker.water_level}ml</div>
+        <button className='check-btn' onClick={feedInfo}>급식소 확인</button>
       </div>
     </div>
   )

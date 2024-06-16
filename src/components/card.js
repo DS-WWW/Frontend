@@ -1,7 +1,7 @@
-// src/components/Card.js
-
 import React from 'react';
 import '../css/Card.css';
+
+// 어디에 사용되는 컴포넌트인지?
 
 const Card = ({ text1, text2, image }) => {
   const currentDate = new Date();
@@ -11,7 +11,7 @@ const Card = ({ text1, text2, image }) => {
     <div className="card">
       <div>
         <div className="card-content">{formattedDate}</div>
-        <div className="card-content">{text1}</div>
+        <div className="card-content">{text1} 이건</div>
         <img src={image} alt="Card" className="card-image" />
       </div>
     </div>

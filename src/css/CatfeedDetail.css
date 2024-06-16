@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "PretendardBold";
+  src: url("../fonts/Pretendard-Bold.otf");
+}
+
+@font-face {
+  font-family: "PretendardMedium";
+  src: url("../fonts/Pretendard-Medium.otf");
+}
+
+@font-face {
+  font-family: "PretendardRegular";
+  src: url("../fonts/Pretendard-Regular.otf")
+}
+
+
+.container {
+  width: 90vw;
+}
+
+.container-title {
+  display: flex;
+  align-items: center;
+  font-family: 'PretendardBold';
+}
+
+.title {
+  font-size: 28px;
+  color: #A66D4F;
+}
+
+.go-btn {
+  font-family: 'PretendardMedium';
+  background: #A66D4F;
+  border: none;
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 8px 12px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  font-family: "PretendardRegular";
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pagination button.active {
+  font-family: 'PretendardBold';
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

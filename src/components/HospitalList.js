@@ -10,10 +10,10 @@ const HospitalList = ({ marker }) => {
   return (
     <div className='list'>
       <div className='hospital'>
-        <text className='content'>{marker.name}</text>
+        <div className='content'>{marker.name}</div>
       </div>
       <div className='hospital'>
-        <text className='content'>{marker.address}</text>
+        <div className='content'>{marker.address}</div>
         <button className='detail-btn' onClick={handleDetailClick}>{marker.name}</button>
       </div>
     </div>
