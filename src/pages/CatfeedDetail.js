@@ -7,27 +7,29 @@ import CatfeedDetailList from '../components/CatfeedDetailList';
 const ITEMS_PER_PAGE = 8
 
 const CatfeedDetail = () => {
-  const { id } = useParams() // URL 파라미터로부터 id를 받음
+  const { name } = useParams() // URL 파라미터로부터 name을 받음
+  const decodedName = decodeURIComponent(name); // 디코드하여 사용
   const [currentPage, setCurrentPage] = useState(1) // 현재 페이지를 저장하는 상태
   const [catfeedInfo, setCatfeedInfo] = useState([]) // 데이터 저장 상태
-  const [feedStationName, setFeedStationName] = useState('') // 급식소 이름 저장 상태
+  const [feedStationName, setFeedStationName] = useState(decodedName) // 급식소 이름 저장 상태
 
   useEffect(() => {
     const fetchCatfeedData = async () => {
       try {
-        const response = await axios.get(`/api/feedStationDetail/${id}`);
-        if (response.data.success) {
-          setCatfeedInfo([response.data.stations])
-          setFeedStationName(response.data.stations.name)
+        const response = await axios.get(`/api/feedStationDetail/${decodedName}`);
+        if (response.data.success && response.data.iotData) {
+          setCatfeedInfo(response.data.iotData); // iotData 배열 설정
         } else {
           console.error('Error: Data fetch was not successful.');
+          setCatfeedInfo([]); // 데이터가 없을 경우 빈 배열 설정
         }
       } catch (error) {
         console.error('Error fetching catfeed data:', error);
+        setCatfeedInfo([]); // 오류 발생 시 빈 배열 설정
       }
     };
     fetchCatfeedData();
-  }, [id]);
+  }, [decodedName]);
 
 
   const totalPages = Math.ceil(catfeedInfo.length / ITEMS_PER_PAGE)
@@ -90,9 +92,13 @@ const CatfeedDetail = () => {
         <div className='title'>{feedStationName}</div>
         <button className='go-btn' onClick={goCctv}>CCTV 보기</button>
       </div>
-      {currentData.map((item) => (
-        <CatfeedDetailList key={item._id} props={item} />
-      ))}
+      {currentData.length > 0 ? (
+        currentData.map((item) => (
+          <CatfeedDetailList key={item._id} props={item} />
+        ))
+      ) : (
+        <div className='no-data'>데이터가 없습니다.</div>
+      )}
       <div className="pagination">
         <button onClick={handleClickFirst} disabled={currentPage === 1}>
           &lt;&lt;

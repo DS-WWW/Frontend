@@ -17,7 +17,7 @@ function App() {
             <Route path="/" element={<Home />}/>
             <Route path="/Catfeed" element={<Catfeed />}/>
             <Route path="/HospitalMap" element={<HospitalMap />}/>
-            <Route path="/Catfeed/CatfeedDetail/:id" element={<CatfeedDetail />}/>
+            <Route path="/Catfeed/CatfeedDetail/:name" element={<CatfeedDetail />}/>
             <Route path="/Catcamera" element={<Catcamera />}/>
             <Route path="/Cardnews" element={<Cardnews />}/>
           </Route>

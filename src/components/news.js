@@ -1,14 +1,19 @@
-// src/components/News.js
-
 import React from 'react';
 import '../css/Cardnews.css'; // Cardnews.css를 import
 
-const news = ({image, text }) => {
+const news = ({ image, text, url }) => {
+
+  const handleClick = () => {
+    window.open(url, '_blank')
+  }
+
     return (
-      <div className="card">
+      <div className="card" onClick={handleClick}>
         <div>
-          <div className="card-image">{image}</div>
-          <div className="card-content">{text}</div>
+          <img src={image} alt={text} className="card-image" />
+          <div className="card-content">
+            <div className='card-text'>{text}</div>
+          </div>
         </div>
       </div>
     );
