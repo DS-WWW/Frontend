@@ -17,7 +17,7 @@ const Cardnews = () => {
           text={item.text}
           url={item.url} />
       ))}
-    </div>
+      </div>
     </>
   );
 };
