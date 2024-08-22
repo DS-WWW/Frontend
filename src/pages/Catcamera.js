@@ -3,36 +3,21 @@ import axios from 'axios';
 import CatPlace from '../components/CatPlace';
 import '../css/Catcamera.css'
 
-const ITEMS_PER_PAGE = 6
+const ITEMS_PER_PAGE = 6;
+
+const fixedTabs = [
+  { id: 1, title: '정문' },
+  { id: 2, title: '후문' },
+  { id: 3, title: '도서관' },
+  { id: 4, title: '차미리사기념관' },
+  { id: 5, title: '자연과학대학' },
+];
 
 const Catcamera = () => {
-  const [tabs, setTabs] = useState([]) // 탭 데이터를 저장하는 상태
-  const [catData, setCatData] = useState([]) // 고양이 데이터를 저장하는 상태
-  const [activeTab, setActiveTab] = useState('') // 활성 탭을 저장하는 상태
-  const [currentPage, setCurrentPage] = useState(1) // 현재 페이지를 저장하는 상태
-
-  useEffect(() => {
-    const fetchTabs = async () => {
-      try {
-        const response = await axios.get('/api/recognition/tabs');
-        if (response.data.success) {
-          const tabsData = response.data.recognitions.map((item, index) => ({
-            id: index + 1,
-            title: item.category
-          }))
-          setTabs(tabsData);
-          if (tabsData.length > 0) {
-            setActiveTab(tabsData[0].title)
-          }
-        } else {
-          console.error('Error: Tabs data fetch was not successful.');
-        }
-      } catch (error) {
-        console.error('Error fetching tabs data:', error)
-      }
-    };
-    fetchTabs();
-  }, [])
+  const [tabs] = useState(fixedTabs); // 고정된 탭 데이터를 사용
+  const [catData, setCatData] = useState([]); // 고양이 데이터를 저장하는 상태
+  const [activeTab, setActiveTab] = useState(fixedTabs[0].title); // 활성 탭을 초기화
+  const [currentPage, setCurrentPage] = useState(1); // 현재 페이지를 저장하는 상태
 
   useEffect(() => {
     if (activeTab) {
@@ -48,30 +33,30 @@ const Catcamera = () => {
               img: item.img,
               category: item.category
             }));
-            setCatData(formattedData)
+            setCatData(formattedData);
           } else {
-            console.error('Error: Cat data fetch was not successful.')
+            console.error('Error: Cat data fetch was not successful.');
           }
         } catch (error) {
-          console.error('Error fetching cat data:', error)
+          console.error('Error fetching cat data:', error);
         }
       };
-      fetchCatData()
+      fetchCatData();
     }
-  }, [activeTab])
+  }, [activeTab]);
 
   const formatDateTime = (dateTime) => {
-    const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }
-    const formattedDateTime = new Intl.DateTimeFormat('ko-KR', options).format(new Date(dateTime))
-    return formattedDateTime.replace(/\./g, '. ')
-  }
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+    const formattedDateTime = new Intl.DateTimeFormat('ko-KR', options).format(new Date(dateTime));
+    return formattedDateTime.replace(/\./g, '. ');
+  };
 
   const filteredData = catData
-    .sort((a, b) => new Date(b.time) - new Date(a.time))
+    .sort((a, b) => new Date(b.time) - new Date(a.time));
 
-    const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE)
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
-    const currentData = filteredData.slice(startIndex, startIndex + ITEMS_PER_PAGE)
+  const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const currentData = filteredData.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
   const handleClickNext = () => {
     if (currentPage < totalPages) {
@@ -83,39 +68,39 @@ const Catcamera = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
-  }
+  };
 
   const handleClickFirst = () => {
     setCurrentPage(1);
-  }
+  };
 
   const handleClickLast = () => {
     setCurrentPage(totalPages);
-  }
+  };
 
   const handleClickPageNumber = (pageNumber) => {
-    setCurrentPage(pageNumber)
-  }
+    setCurrentPage(pageNumber);
+  };
 
   const getPageNumbers = () => {
-    const pageNumbers = []
-    let startPage = Math.max(1, currentPage - 2)
-    let endPage = Math.min(totalPages, currentPage + 2)
+    const pageNumbers = [];
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, currentPage + 2);
 
     if (currentPage <= 3) {
-      endPage = Math.min(5, totalPages)
+      endPage = Math.min(5, totalPages);
     }
 
     if (currentPage > totalPages - 3) {
-      startPage = Math.max(totalPages - 4, 1)
+      startPage = Math.max(totalPages - 4, 1);
     }
 
     for (let i = startPage; i <= endPage; i++) {
-      pageNumbers.push(i)
+      pageNumbers.push(i);
     }
 
     return pageNumbers;
-  }
+  };
 
   return (
     <div className="container">
@@ -128,8 +113,8 @@ const Catcamera = () => {
                 key={tab.id}
                 className={`tab ${tab.title === activeTab ? 'active' : ''}`}
                 onClick={() => {
-                  setActiveTab(tab.title)
-                  setCurrentPage(1)
+                  setActiveTab(tab.title);
+                  setCurrentPage(1);
                 }}
               >
                 {tab.title}
@@ -168,6 +153,6 @@ const Catcamera = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Catcamera;

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import LazyLoad from 'react-lazyload';
 import '../css/CatPlace.css';
-import catImage from '../images/cat.png';
 
 const CatPlace = (props) => {
-  const [cats, setCats] = useState(props.data)
+  const [cats, setCats] = useState(props.data);
 
   useEffect(() => {
-    setCats(props.data)
-  }, [props.data])
+    setCats(props.data);
+  }, [props.data]);
 
   return (
     <div className='cat-place-container'>
@@ -16,12 +16,14 @@ const CatPlace = (props) => {
           <div className='find-date'>{cat.time}</div>
           <div className='find-place'>{cat.title}</div>
           <div className='place-img'>
-            <img src={catImage} alt='cat' className='cat-img' />
+            <LazyLoad height={200} offset={100} once>
+              <img src={cat.img} alt='cat' className='cat-img' />
+            </LazyLoad>
           </div>
         </div>
       ))}
     </div>
   );
-}
+};
 
 export default CatPlace;
