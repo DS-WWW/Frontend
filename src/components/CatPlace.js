@@ -14,7 +14,7 @@ const CatPlace = (props) => {
       {cats.map((cat, index) => (
         <div key={index} className='place-container'>
           <div className='find-date'>{cat.time}</div>
-          <div className='find-place'>{cat.title}</div>
+          <div className='find-place'>{cat.animal}</div>
           <div className='place-img'>
             <LazyLoad height={200} offset={100} once>
               <img src={cat.img} alt='cat' className='cat-img' />

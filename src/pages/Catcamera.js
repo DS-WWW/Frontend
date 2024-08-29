@@ -30,9 +30,14 @@ const Catcamera = () => {
               id: item._id,
               title: item.title,
               time: formatDateTime(item.date),
+              time2: new Date(item.date),
               img: item.img,
-              category: item.category
+              category: item.category,
+              animal: item.animal
             }));
+
+            formattedData.sort((a, b) => b.time2 - a.time2);
+
             setCatData(formattedData);
           } else {
             console.error('Error: Cat data fetch was not successful.');
@@ -125,7 +130,9 @@ const Catcamera = () => {
       </div>
       <div className="tab-content">
         <div className="tab-panel">
-          <CatPlace data={currentData} />
+          <CatPlace data={currentData.map(item=> ({
+            ...item, time:  formatDateTime(item.time2)
+          }))} />
         </div>
         <div className="pagination">
           <button onClick={handleClickFirst} disabled={currentPage === 1}>
